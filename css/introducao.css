@@ -60,6 +60,9 @@ left: 0px;
     grid-template-columns: 1fr;
   }
 .introducao img {
-  display: none;
+  /* display: none; */
+  max-width: 50%;
+  margin: auto;
+  margin-top: -2rem;
 }
 }
