@@ -31,9 +31,12 @@
 }
 
 @media (max-width: 800px) {
+  .marca {
+    margin-left: 0.8rem;
+  }
   .header {
     flex-direction: column;
-    gap: 40px;
+    gap: 130px;
     padding: 20px;
   }
   .header a {
