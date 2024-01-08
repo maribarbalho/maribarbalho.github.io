@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portifólio - Mariana Barbalho</title>
+  <meta name="description" content="Desenvolvedora Front End, UX/UI Designer & Especialista em Power Bi. Localizada na Zona Oeste de SP.">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="header">
+    <img class="marca" src="./img/marca.svg" alt="Logo" width="608" height="68">
+    <nav>
+      <ul class="header-menu">
+        <!-- <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#formacao">Formação</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="./projetos.html">Projetos</a></li> -->
+        <a href="./index.html" class="botao-voltar">Voltar para a Página Inicial</a>
+
+      </ul>
+    </nav>
+    <div class="botoes-voltar">
+    </div>
+
+  </header>
+
+  <main class="introducao">
+    <img class="perfil" src="./img/Image.svg" alt="Foto" width="500" height="520">
+    <div>
+      <h1>Desenvolvedora Front End, UX/UI Designer & Especialista em Power BI</h1>
+      <p>Localizada na Zona Oeste de SP.</p>
+    </div>
+  </main>
+
+  <section class="projetos" id="projetos" aria-label="Projetos">
+    <h2 class="subtitulo-projetos">Projetos</h2>
+    <div class="projeto">
+      <h3 class="projeto-titulo">Bikcraft</h3>
+      <p class="projeto-descricao">Desenvolvimento do site para a marca Bikcraft, utilizando HTML, CSS e JavaScript para criar um site responsivo e interativo.</p>
+    </div>
+    <div class="projeto">
+      <h3 class="projeto-titulo">Dashboard de Vendas Power BI</h3>
+      <p class="projeto-descricao">Criação de um painel de análise de vendas utilizando a ferramenta Power BI, com visualizações de dados para uma compreensão melhor dos resultados.</p>
+    </div>
+    <div class="projeto">
+      <h3 class="projeto-titulo">Dashboard no Excel</h3>
+      <p class="projeto-descricao">Desenvolvimento de um painel personalizado no Excel para análise de dados, utilizando fórmulas e gráficos para visualização dos indicadores.</p>
+    </div>
+  </section>
+
+
+  <footer class="footer" id="contato">
+    <img src="/img/detalhe.svg" alt="listra">
+    <div class="footer-container">
+      <p class="footer-texto">Estou disponível para novos projetos. Entre em contato comigo.</p>
+      <ul class="footer-contato">
+        <li>mariana_barbalho222@hotmail.com</li>
+        <li>+55 11 96366-4310</li>
+        <li><a href="/">@mariana.code</a></li>
+      </ul>
+      <p class="footer-copy">Todos os direitos Reservados. ©</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
