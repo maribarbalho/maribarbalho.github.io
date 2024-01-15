@@ -46,3 +46,11 @@
     line-height: 2.5rem;
   }
 }
+
+.logo-linkedin {
+max-width: 2.5rem;
+padding: 1rem;
+margin-left: -1rem;
+grid-template-columns: 2;
+}
+
