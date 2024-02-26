@@ -3,16 +3,21 @@
   padding: 40px 20px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 100px;
+  grid-template-columns: 1fr;
+  gap: 70px;
 }
 
 .subtitulo-projetos {
-  font-size: 7rem;
+  font-size: 10rem;
   line-height: 1;
   text-transform: uppercase;
   word-break: break-all;
-  max-width: 4ch;
+}
+
+.titulo-projetos {
+  font-size: 30px;
+  line-height: 1.1;
+  font-weight: bold;
 }
 
 .projetos .subtitulo-projetos {
@@ -20,11 +25,13 @@
 }
 
 .projetos-texto {
-  font-size: 1.5rem;
+  font-size: 2rem;
   line-height: 1.33;
-  max-width: 40ch;
+  /* max-width: 40ch; */
   margin-bottom: 60px;
   color: #525252;
+  text-align: center;
+  /* margin: 0 auto; */
 }
 
 .projetos-texto strong {
@@ -36,9 +43,9 @@
   grid-template-columns: 1fr;
   gap: 10px 20px;
   padding: 20px;
-  background: #f5f5f5;
-  margin-bottom: 20px;
-  border-radius: 4px;
+  background: #e7e7e7;
+  margin-bottom: 50px;
+  border-radius: 6px;
   position: relative;
 }
 
@@ -89,6 +96,44 @@
   padding: 5px 10px;
 }
 
+.iframe-projetos {
+  width: 100%;
+  height: 45rem;
+  /* padding-top: 56.2500%; */
+  /* padding-bottom: 0; */
+  /* box-shadow: 0 2px 8px 0 rgba(63, 69, 81, 0.16); */
+  /* margin-top: 1.6em;
+  margin-bottom: 0.9em; */
+  overflow: hidden;
+  border-radius: 4px;
+  will-change: transform;
+}
+
+.iframe-projetos-canva {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+  padding-bottom: 0;
+  box-shadow: 0 2px 8px 0 rgba(63, 69, 81, 0.16);
+  margin-top: 1.6em;
+  margin-bottom: 0.9em;
+  overflow: hidden;
+  border-radius: 4px;
+  will-change: transform;
+}
+
+.iframe-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
 @media (max-width: 800px) {
   .projetos {
     grid-template-columns: 1fr;
@@ -114,8 +159,23 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 800px) {
   .link-projeto {
     grid-template-columns: 1fr;
+  }
+  .iframe-projetos {
+    /* display: none; */
+    height: 100%;
+    width: 100%;
+  }
+  .iframe-projetos-canva {
+    /* height: 100%;
+    width: 100%; */
+  }
+  .projetos .subtitulo-projetos {
+    font-size: 3rem;
+  }
+  .titulo-projetos {
+    font-size: 20px;
   }
 }
