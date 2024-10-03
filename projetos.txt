@@ -33,7 +33,7 @@
   </header>
 
   <main class="introducao">
-    <img class="perfil" src="./img/Image.svg" alt="Foto" width="500" height="520">
+    <img class="perfil" src="./img/formatura.jpeg" alt="Foto" width="500" height="520">
     <div>
       <h1>Desenvolvedora Front End, UX/UI Designer & Especialista em Power BI</h1>
       <p>Localizada na Zona Oeste de SP.</p>

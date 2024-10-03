@@ -1,6 +1,20 @@
-/* .perfil {
-  max-width: 200px;
-} */
+.perfil {
+  width: 100%;
+  max-width: 300px; /* Limita o tamanho máximo da imagem */
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px; /* Adiciona bordas arredondadas */
+  border: 5px solid #fff; /* Adiciona a borda branca */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+  display: block;
+  margin: 20px auto;
+  transition: transform 0.3s ease; /* Efeito suave de zoom */
+}
+
+.perfil:hover {
+  transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
 .introducao {
   max-width: 1200px;
   padding: 40px 20px;
@@ -8,7 +22,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 100px;
-  }
+}
 
 .introducao h1 {
   font-size: 4.5rem;
@@ -24,45 +38,63 @@
   height: 100px;
   background: url('../img/detalhe.svg') no-repeat center;
   position: absolute;
-top: -15px;
-left: -40px;
-z-index: -1;
+  top: -15px;
+  left: -40px;
+  z-index: -1;
 }
 
-.introducao P {
+.introducao p {
   font-size: 1.5rem;
   color: #525252;
 }
 
+/* Ajustes para telas menores */
 @media (max-width: 1000px) {
-.introducao h1 {
-  font-size: 3rem;
-}
-}
-
-@media (max-width: 800px) {
-.introducao {
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-.introducao h1 {
-  font-size: 2rem;
-}
-.introducao h1::before{
-width: 30px;
-height: 10px;
-left: 0px;
-}
+  .introducao h1 {
+    font-size: 3rem;
+  }
 }
 
 @media (max-width: 800px) {
   .introducao {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  
+  .introducao h1 {
+    font-size: 2rem;
+  }
+  
+  .introducao h1::before {
+    width: 30px;
+    height: 10px;
+    left: 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .introducao {
     grid-template-columns: 1fr;
   }
-.introducao img {
-  /* display: none; */
-  max-width: 50%;
-  margin: auto;
-  margin-top: -2rem;
+
+  /* Responsivo com sombra dupla */
+@media (max-width: 800px) {
+  .perfil {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 }
+
+@media (max-width: 600px) {
+  .perfil {
+    margin-top: -30px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 0, 0, 0.2);
+    max-width: 150px;
+    border-radius: 20%;
+  }
+}
+
+
+  .introducao h1 {
+    font-size: 1.8rem;
+  }
 }
