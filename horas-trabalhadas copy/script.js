@@ -63,4 +63,3 @@ document.getElementById('calcular').addEventListener('click', function() {
 
   document.getElementById('totalHoras').textContent = `${horasFormatadas}h${minutosFormatados}m`;
 });
-
