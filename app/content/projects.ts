@@ -32,7 +32,17 @@ export type Project = {
   disclaimer?: string;
 };
 
-export const projects: Project[] = [
+// Ordem de exibição no site (a ordem do array abaixo não importa).
+const ORDER = [
+  "logistics-performance-analytics",
+  "dashboard-vendas-power-bi",
+  "operacoes-de-credito",
+  "analise-obesidade",
+  "dashboard-rh",
+  "dashboard-vendas-streamlit",
+];
+
+const all: Project[] = [
   {
     slug: "logistics-performance-analytics",
     title: "Logistics Performance Analytics",
@@ -160,10 +170,10 @@ export const projects: Project[] = [
     tools: ["Power BI"],
     teaser:
       "Análise de hábitos alimentares, estilo de vida e meio de transporte para apoiar decisões de uma equipe de saúde.",
-    cover: "obesidade",
+    cover: "obesidade-overview",
     links: {
       powerbi:
-        "https://app.powerbi.com/view?r=eyJrIjoiZTZjMmQ3NWEtY2IwZC00M2QyLWI0OGItMTczMTk0NTc2ZGNjIiwidCI6Ijg5NmI3ZjkyLTgyZDItNDc3Ny1hYTQwLThiNjEyZWY2MWJmNCJ9&pageName=922fb74d3dea3e668ec8",
+        "https://app.powerbi.com/view?r=eyJrIjoiZTZjMmQ3NWEtY2IwZC00M2QyLWI0OGItMTczMTk0NTc2ZGNjIiwidCI6Ijg5NmI3ZjkyLTgyZDItNDc3Ny1hYTQwLThiNjEyZWY2MWJmNCJ9",
     },
     context:
       "Painel que relaciona hábitos alimentares e comportamentais ao peso, para identificar pontos críticos de intervenção médica e educacional.",
@@ -173,28 +183,12 @@ export const projects: Project[] = [
       "A prática regular de atividade física está associada a menor peso médio.",
       "Quem se locomove a pé ou de bicicleta apresentou peso médio até 16 kg menor do que quem usa carro ou moto.",
     ],
-    shots: [{ key: "obesidade", caption: "Principais insights" }],
-    pending: ["Origem dos dados", "Metodologia da análise"],
-  },
-  {
-    slug: "area-comercial",
-    title: "Área Comercial",
-    category: "Business Intelligence · Varejo",
-    tools: ["Power BI", "DAX"],
-    teaser:
-      "Vendas e devoluções por gerente, produto, loja e ano, com árvore de decomposição para investigar resultados.",
-    cover: "comercial",
-    links: {
-      powerbi:
-        "https://app.powerbi.com/view?r=eyJrIjoiNjQ0ZTkwMTAtODk2OS00NjM0LTlkNzAtZGJhODA4YTJkYTkyIiwidCI6Ijg5NmI3ZjkyLTgyZDItNDc3Ny1hYTQwLThiNjEyZWY2MWJmNCJ9&pageName=ReportSection456af0ff619d72b29add",
-    },
-    method: [
-      "Páginas de Overview, Devoluções e Internos.",
-      "Árvore de decomposição da quantidade vendida por gerente de loja e produto.",
-      "Vendido por loja, faturado por ano e tabela de vendas e devoluções por gerente e país.",
+    shots: [
+      { key: "obesidade-overview", caption: "Overview" },
+      { key: "obesidade-habitos", caption: "Hábitos alimentares" },
+      { key: "obesidade-insights", caption: "Principais insights" },
     ],
-    shots: [{ key: "comercial", caption: "Overview" }],
-    pending: ["Contexto e problema de negócio", "Origem dos dados", "Principais insights"],
+    pending: ["Origem dos dados", "Metodologia da análise"],
   },
   {
     slug: "dashboard-vendas-streamlit",
@@ -215,6 +209,12 @@ export const projects: Project[] = [
     pending: ["Capturas de tela da aplicação", "Principais insights"],
   },
 ];
+
+export const projects: Project[] = ORDER.map((slug) => {
+  const p = all.find((x) => x.slug === slug);
+  if (!p) throw new Error(`Projeto "${slug}" listado em ORDER não existe.`);
+  return p;
+});
 
 export const projectSlugs = projects.map((p) => p.slug);
 
