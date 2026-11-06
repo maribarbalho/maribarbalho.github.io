@@ -26,6 +26,39 @@ export const profile = {
   ],
 } as const;
 
+// Seção Sobre. Trechos entre {chaves} recebem o acento serifado.
+export const about = {
+  manifesto:
+    "Começo pela {pergunta de negócio}. Depois vêm os dados: extraídos, tratados e modelados até responderem com clareza. O resultado é um indicador confiável, um dashboard que se lê de relance e uma análise que vira {decisão}.",
+  trajectory:
+    "Minha trajetória passa pela área comercial do agronegócio, na Corteva, pelo mercado financeiro, no Ouribank, e por meios de pagamento, na Cielo, onde também atuei próxima aos times de tecnologia, na Plataforma do Desenvolvedor. Essa combinação me dá repertório de negócio e base técnica para conduzir a análise de ponta a ponta.",
+  facts: [
+    { value: "2022", label: "Início da trajetória em dados" },
+    { value: "3", label: "Empresas: agro, banco e pagamentos" },
+    { value: "FIAP", label: "Pós-graduação em Data Analytics" },
+  ],
+  pillars: [
+    {
+      n: "01",
+      title: "Extrair",
+      text: "Consultas SQL em bases relacionais, data warehouse e APIs. Os dados certos, da fonte certa.",
+      tools: ["SQL", "Redshift", "APIs", "Python"],
+    },
+    {
+      n: "02",
+      title: "Modelar",
+      text: "Tratamento e ETL, modelagem dimensional e medidas que mantêm os números consistentes em qualquer filtro.",
+      tools: ["Power Query", "DAX", "Pandas", "Modelagem"],
+    },
+    {
+      n: "03",
+      title: "Comunicar",
+      text: "Dashboards, KPIs e storytelling para que o indicador seja entendido e vire ação.",
+      tools: ["Power BI", "Streamlit", "Plotly", "KPIs"],
+    },
+  ],
+} as const;
+
 export const navigation = [
   { label: "Sobre", href: "#sobre" },
   { label: "Projetos", href: "#projetos" },
