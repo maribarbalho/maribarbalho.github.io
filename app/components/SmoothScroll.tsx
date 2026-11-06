@@ -1,5 +1,6 @@
 import Lenis from "lenis";
 import { useEffect, type ReactNode } from "react";
+import { useLocation } from "react-router";
 import { ScrollTrigger, gsap, prefersReducedMotion } from "~/lib/gsap";
 
 /**
@@ -8,6 +9,8 @@ import { ScrollTrigger, gsap, prefersReducedMotion } from "~/lib/gsap";
  * usuário prefere movimento reduzido.
  */
 export function SmoothScroll({ children }: { children: ReactNode }) {
+  const { pathname, hash } = useLocation();
+
   useEffect(() => {
     if (prefersReducedMotion()) return;
 
@@ -26,6 +29,15 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       delete (window as unknown as { __lenis?: Lenis }).__lenis;
     };
   }, []);
+
+  // Troca de página: volta ao topo (a âncora, quando existe, é tratada pela página).
+  useEffect(() => {
+    if (hash) return;
+    const lenis = (window as unknown as { __lenis?: Lenis }).__lenis;
+    if (lenis) lenis.scrollTo(0, { immediate: true, force: true });
+    else window.scrollTo(0, 0);
+    requestAnimationFrame(() => ScrollTrigger.refresh());
+  }, [pathname]);
 
   return <>{children}</>;
 }

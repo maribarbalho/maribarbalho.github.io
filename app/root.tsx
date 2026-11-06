@@ -1,7 +1,11 @@
 import type { ReactNode } from "react";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse } from "react-router";
 import type { Route } from "./+types/root";
+import { Header } from "./components/Header";
+import { Preloader } from "./components/Preloader";
+import { SmoothScroll } from "./components/SmoothScroll";
 import { profile } from "./content/profile";
+import { IntroProvider } from "./lib/intro";
 import "./styles/app.css";
 
 // Roda antes da primeira pintura: marca se há JS + movimento permitido
@@ -26,7 +30,6 @@ const jsonLd = {
 
 export const links: Route.LinksFunction = () => [
   { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-  { rel: "canonical", href: profile.url },
 ];
 
 export function Layout({ children }: { children: ReactNode }) {
@@ -55,7 +58,18 @@ export function Layout({ children }: { children: ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <IntroProvider>
+      <a href="#conteudo" className="skip-link">
+        Pular para o conteúdo
+      </a>
+      <Preloader />
+      <SmoothScroll>
+        <Header />
+        <Outlet />
+      </SmoothScroll>
+    </IntroProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

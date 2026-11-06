@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { useLocation } from "react-router";
 import { navigation, profile } from "~/content/profile";
 import { ScrollTrigger, gsap, prefersReducedMotion, useGSAP } from "~/lib/gsap";
 import { useIntro } from "~/lib/intro";
@@ -11,6 +12,8 @@ export function Header() {
   const ref = useRef<HTMLElement>(null);
   const [open, setOpen] = useState(false);
   const { ready } = useIntro();
+  // Fora da home, os links de seção apontam para "/#secao".
+  const base = useLocation().pathname === "/" ? "" : "/";
 
   useGSAP(
     () => {
@@ -43,7 +46,7 @@ export function Header() {
       className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-10 md:pt-6"
     >
       <div className="flex items-center justify-between">
-        <a href="#topo" className="group flex items-center gap-3" aria-label={`${profile.name}, início`}>
+        <a href={base ? "/" : "#topo"} className="group flex items-center gap-3" aria-label={`${profile.name}, início`}>
           <span className="grid size-9 place-items-center rounded-full border border-line text-[11px] font-bold tracking-wider text-white transition-colors duration-300 group-hover:border-sky group-hover:bg-electric">
             MB
           </span>
@@ -54,7 +57,7 @@ export function Header() {
           <ul className="flex items-center gap-8">
             {navigation.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className="label-mono link-draw pb-1 text-mist hover:text-white">
+                <a href={base + item.href} className="label-mono link-draw pb-1 text-mist hover:text-white">
                   {item.label}
                 </a>
               </li>
@@ -84,7 +87,7 @@ export function Header() {
           {navigation.map((item, i) => (
             <li key={item.href} className="border-t border-line pt-2">
               <a
-                href={item.href}
+                href={base + item.href}
                 onClick={() => setOpen(false)}
                 className="flex items-baseline justify-between text-5xl font-extrabold text-white [font-stretch:115%]"
               >
