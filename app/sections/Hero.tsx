@@ -5,6 +5,53 @@ import { profile } from "~/content/profile";
 import { MQ, ScrollTrigger, SplitText, gsap, useGSAP } from "~/lib/gsap";
 import { useIntro } from "~/lib/intro";
 
+/** Uma volta da faixa: grupos com rótulo e chips. */
+function StackRow({ hidden = false }: { hidden?: boolean }) {
+  return (
+    <ul aria-hidden={hidden || undefined} className="flex shrink-0 items-center gap-2 pr-2">
+      {profile.stack.map(({ group, items }) => (
+        <li key={group} className="flex items-center gap-2">
+          <span className="label-mono pl-3 text-signal-text">{group}</span>
+          <ul className="flex items-center gap-2">
+            {items.map((s) => (
+              <li
+                key={s}
+                className="label-mono rounded-full border border-line bg-navy/60 px-3 py-1.5 whitespace-nowrap text-ice backdrop-blur-sm"
+              >
+                {s}
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/**
+ * Ferramentas e competências em faixa contínua (pausa ao passar o mouse).
+ * Com movimento reduzido, vira uma lista estática com quebra de linha.
+ */
+function StackTicker() {
+  return (
+    <div aria-label="Ferramentas e competências" role="region">
+      <div className="group relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)] motion-reduce:hidden">
+        <div className="flex w-max animate-[ticker_48s_linear_infinite] group-hover:[animation-play-state:paused]">
+          <StackRow />
+          <StackRow hidden />
+        </div>
+      </div>
+      <div className="hidden flex-wrap gap-2 motion-reduce:flex">
+        {profile.stack.flatMap(({ items }) => items).map((s) => (
+          <span key={s} className="label-mono rounded-full border border-line px-3 py-1.5 text-ice">
+            {s}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function Hero() {
   const root = useRef<HTMLElement>(null);
   const progress = useRef(0);
@@ -40,7 +87,7 @@ export function Hero() {
           .from(q("[data-photo-img]"), { scale: 1.35, duration: 1.8 }, 0.1)
           .from(q("[data-meta]"), { y: 16, autoAlpha: 0, duration: 1, stagger: 0.06 }, 0.5)
           .from(split.lines, { yPercent: 100, duration: 1.1, stagger: 0.07 }, 0.65)
-          .from(q("[data-chip]"), { y: 10, autoAlpha: 0, duration: 0.8, stagger: 0.04 }, 0.9)
+          .from(q("[data-chip]"), { y: 12, autoAlpha: 0, duration: 1 }, 0.9)
           .from(q("[data-cue-line]"), { scaleY: 0, transformOrigin: "top", duration: 1 }, 1.1)
           // Devolve o texto ao fluxo natural para que ele quebre certo ao redimensionar.
           .add(() => split.revert());
@@ -140,17 +187,9 @@ export function Hero() {
           <p data-summary className="mt-5 text-[15px] leading-relaxed text-mist md:text-base">
             {profile.summary}
           </p>
-          <ul aria-label="Principais ferramentas" className="mt-6 flex flex-wrap gap-2">
-            {profile.stack.map((s) => (
-              <li
-                key={s}
-                data-chip
-                className="label-mono rounded-full border border-line bg-navy/60 px-3 py-1.5 text-ice backdrop-blur-sm"
-              >
-                {s}
-              </li>
-            ))}
-          </ul>
+          <div data-chip className="mt-6">
+            <StackTicker />
+          </div>
         </div>
 
         {/* Retrato */}

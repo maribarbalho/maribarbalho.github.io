@@ -123,6 +123,12 @@
   }
 }
 
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes cue {
   0% {
     transform: translateY(-100%);

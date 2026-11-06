@@ -11,7 +11,16 @@ export const profile = {
   url: "https://maribarbalho.github.io/",
   summary:
     "Analista de Dados com experiência em meios de pagamento e serviços financeiros. Atuo de ponta a ponta, da extração e do tratamento dos dados à geração de insights, com dashboards, KPIs, ETL e automações que apoiam a tomada de decisão.",
-  stack: ["SQL", "Python", "Power BI", "DAX", "Power Query", "AWS"],
+  // Ferramentas e competências, agrupadas por área (faixa animada do Hero).
+  stack: [
+    { group: "Dados", items: ["SQL", "Python", "Power BI", "DAX", "Power Query"] },
+    {
+      group: "BI",
+      items: ["Modelagem dimensional", "Esquema estrela", "KPIs", "Dashboards", "Storytelling com dados"],
+    },
+    { group: "Cloud & IA", items: ["AWS", "Azure", "Google Cloud", "Artificial Intelligence"] },
+    { group: "Colaboração", items: ["Git", "GitHub", "GitLab", "Jira", "Confluence", "Scrum", "Kanban"] },
+  ],
   contact: {
     email: "mariana_barbalho222@hotmail.com",
     linkedin: "https://www.linkedin.com/in/mariana-barbalho-619254202",
