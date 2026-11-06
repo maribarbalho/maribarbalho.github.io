@@ -156,7 +156,7 @@ export function Hero() {
         {/* Retrato */}
         <div
           data-photo-wrap
-          className="order-1 mt-8 w-[52vw] max-w-[260px] self-end md:absolute md:top-[30svh] md:right-[8vw] md:mt-0 md:w-[clamp(220px,min(22vw,44svh),340px)] md:max-w-none"
+          className="order-1 mt-8 w-[40vw] max-w-[200px] self-end md:absolute md:top-[38svh] md:right-[9vw] md:mt-0 md:w-[clamp(170px,min(16vw,32svh),250px)] md:max-w-none"
         >
           <p data-intro data-meta className="label-mono mb-3 hidden md:block">
             Fig. 01 <span className="text-signal-text">—</span> Retrato
@@ -170,9 +170,11 @@ export function Hero() {
               height={900}
               fetchPriority="high"
               decoding="async"
-              className="size-full object-cover"
+              className="size-full object-cover opacity-80 [filter:brightness(0.82)_contrast(0.92)]"
             />
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0 ring-1 ring-white/10 ring-inset" />
+            {/* Véu azul-marinho: integra a foto ao fundo e reduz o destaque */}
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-abyss/70 via-navy/25 to-transparent" />
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 ring-1 ring-white/5 ring-inset" />
           </figure>
         </div>
 
