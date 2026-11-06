@@ -2,7 +2,7 @@ import { useRef } from "react";
 import portrait from "~/assets/mariana-retrato.jpg";
 import { SignalField } from "~/components/SignalField";
 import { profile } from "~/content/profile";
-import { MQ, ScrollTrigger, SplitText, gsap, useGSAP } from "~/lib/gsap";
+import { PIN_PRIORITY, MQ, ScrollTrigger, SplitText, gsap, useGSAP } from "~/lib/gsap";
 import { useIntro } from "~/lib/intro";
 
 /** Uma volta da faixa: grupos com rótulo e chips. */
@@ -104,6 +104,7 @@ export function Hero() {
               start: "top top",
               end: "+=75%",
               pin: true,
+              refreshPriority: PIN_PRIORITY.hero,
               scrub: 0.8,
             },
             defaults: { ease: "none" },

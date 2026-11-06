@@ -41,11 +41,6 @@ export const about = {
     "Começo pela {pergunta de negócio}. Depois vêm os dados: extraídos, tratados e modelados até responderem com clareza. O resultado é um indicador confiável, um dashboard que se lê de relance e uma análise que vira {decisão}.",
   trajectory:
     "Minha trajetória passa pela área comercial do agronegócio, na Corteva, pelo mercado financeiro, no Ouribank, e por meios de pagamento, na Cielo, onde também atuei próxima aos times de tecnologia, na Plataforma do Desenvolvedor. Essa combinação me dá repertório de negócio e base técnica para conduzir a análise de ponta a ponta.",
-  facts: [
-    { value: "2022", label: "Início da trajetória em dados" },
-    { value: "3", label: "Empresas: agro, banco e pagamentos" },
-    { value: "FIAP", label: "Pós-graduação em Data Analytics" },
-  ],
   pillars: [
     {
       n: "01",

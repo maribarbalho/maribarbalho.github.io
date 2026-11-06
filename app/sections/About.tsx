@@ -1,6 +1,6 @@
 import { Fragment, useRef } from "react";
 import { about } from "~/content/profile";
-import { MQ, SplitText, gsap, useGSAP } from "~/lib/gsap";
+import { PIN_PRIORITY, MQ, SplitText, gsap, useGSAP } from "~/lib/gsap";
 import { useIntro } from "~/lib/intro";
 
 /** Converte "texto {destaque} texto" em nós com o acento serifado. */
@@ -37,7 +37,7 @@ export function About() {
           ease: "none",
           stagger: 0.1,
           scrollTrigger: pin
-            ? { trigger: q("[data-pin]")[0], start: "top top", end: "+=110%", pin: true, scrub: 0.6 }
+            ? { trigger: q("[data-pin]")[0], start: "top top", end: "+=110%", pin: true, scrub: 0.6, refreshPriority: PIN_PRIORITY.about }
             : { trigger: q("[data-manifesto]")[0], start: "top 80%", end: "bottom 45%", scrub: 0.6 },
         });
         return () => split.revert();
@@ -109,21 +109,10 @@ export function About() {
         </div>
       </div>
 
-      {/* Trajetória e números */}
+      {/* Trajetória e pilares */}
       <div className="px-4 pb-24 md:px-10 md:pb-36">
         <div data-details className="grid gap-12 border-t border-line pt-12 md:grid-cols-12 md:gap-10 md:pt-16">
-          <dl className="grid grid-cols-3 gap-4 md:col-span-3 md:grid-cols-1 md:gap-8">
-            {about.facts.map((f) => (
-              <div key={f.label} data-rise className="flex flex-col-reverse">
-                <dt className="label-mono mt-2 leading-snug normal-case tracking-normal md:text-xs">{f.label}</dt>
-                <dd className="text-[length:clamp(28px,3.4vw,48px)] leading-none font-extrabold text-white [font-stretch:118%]">
-                  {f.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-
-          <div className="md:col-span-9">
+          <div className="md:col-span-9 md:col-start-4">
             <p data-rise className="max-w-[62ch] text-lg leading-relaxed text-mist md:text-xl">
               {about.trajectory}
             </p>

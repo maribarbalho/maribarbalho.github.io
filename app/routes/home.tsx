@@ -5,6 +5,7 @@ import { ScrollTrigger } from "~/lib/gsap";
 import { useIntro } from "~/lib/intro";
 import { scrollToTarget } from "~/lib/scroll";
 import { About } from "~/sections/About";
+import { Experience } from "~/sections/Experience";
 import { Hero } from "~/sections/Hero";
 import { Projects } from "~/sections/Projects";
 import type { Route } from "./+types/home";
@@ -31,6 +32,17 @@ export default function Home() {
   const { hash } = useLocation();
   const { ready } = useIntro();
 
+  // Depois que todas as seções criaram suas animações, ordena os gatilhos
+  // (pins primeiro, de cima para baixo) e recalcula as posições.
+  useEffect(() => {
+    if (!ready) return;
+    const id = requestAnimationFrame(() => {
+      ScrollTrigger.sort();
+      ScrollTrigger.refresh();
+    });
+    return () => cancelAnimationFrame(id);
+  }, [ready]);
+
   // Ao voltar de um case (ex.: "/#projetos"), rola até a seção depois que
   // os pins do GSAP já reservaram seus espaços.
   useEffect(() => {
@@ -50,19 +62,21 @@ export default function Home() {
       <About />
       <Projects />
 
-      {/* PLACEHOLDER: próxima etapa (Experiência). Existe só para testar a rolagem. */}
+      <Experience />
+
+      {/* PLACEHOLDER: próxima etapa (Formação). Existe só para testar a rolagem. */}
       <section
-        id="experiencia"
+        id="formacao"
         aria-label="Próxima seção (em construção)"
-        className="grid min-h-svh place-items-center border-t border-line bg-navy px-4"
+        className="grid min-h-svh place-items-center border-t border-line bg-abyss px-4"
       >
         <div className="text-center">
-          <p className="label-mono text-signal-text">[ Placeholder · Etapa 4 ]</p>
+          <p className="label-mono text-signal-text">[ Placeholder · Etapa 5 ]</p>
           <p className="mt-4 text-3xl font-bold text-white [font-stretch:112%] md:text-5xl">
-            Experiência <span className="accent-serif text-sky">profissional</span>
+            Formação <span className="accent-serif text-sky">e certificações</span>
           </p>
           <p className="mx-auto mt-4 max-w-md text-fog">
-            Esta seção será desenvolvida na próxima etapa, após a aprovação de Projetos.
+            Esta seção será desenvolvida na próxima etapa, após a aprovação da Experiência.
           </p>
         </div>
       </section>

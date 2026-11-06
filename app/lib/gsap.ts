@@ -33,3 +33,10 @@ export const prefersReducedMotion = () =>
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 export { gsap, ScrollTrigger, SplitText, useGSAP };
+
+/**
+ * Ordem de recálculo dos pins (maior = antes). Os pins precisam ser
+ * calculados de cima para baixo para que os gatilhos abaixo deles
+ * considerem o espaço que cada pin adiciona à página.
+ */
+export const PIN_PRIORITY = { hero: 30, about: 20, projects: 10 } as const;

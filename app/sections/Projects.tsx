@@ -2,7 +2,7 @@ import { useRef, type FocusEvent } from "react";
 import { Link } from "react-router";
 import { ProjectCover } from "~/components/ProjectCover";
 import { projects } from "~/content/projects";
-import { MQ, ScrollTrigger, gsap, useGSAP } from "~/lib/gsap";
+import { PIN_PRIORITY, MQ, ScrollTrigger, gsap, useGSAP } from "~/lib/gsap";
 import { useIntro } from "~/lib/intro";
 import { scrollToTarget } from "~/lib/scroll";
 
@@ -33,6 +33,7 @@ export function Projects() {
             start: "top top",
             end: () => `+=${distance()}`,
             pin: true,
+            refreshPriority: PIN_PRIORITY.projects,
             scrub: 0.8,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
