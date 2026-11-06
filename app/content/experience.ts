@@ -26,7 +26,7 @@ export const experience: Job[] = [
       "Suporte e resolução de chamados da Plataforma do Desenvolvedor (Spotify Backstage), entendendo as necessidades de outros times.",
       "Evolução de soluções de backend, criação de templates e versionamento de código, em colaboração com times multidisciplinares.",
     ],
-    tools: ["Python", "SQL", "Terraform", "AWS", "Azure", "Git"],
+    tools: ["Power BI", "Databricks", "Python", "SQL", "Terraform", "AWS", "Azure", "Git"],
   },
   {
     company: "Ouribank",
