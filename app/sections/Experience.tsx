@@ -66,7 +66,7 @@ export function Experience() {
 
       gsap.from(q("[data-head]"), {
         y: 40,
-        autoAlpha: 0,
+        opacity: 0,
         duration: 1.1,
         stagger: 0.08,
         scrollTrigger: { trigger: root.current, start: "top 70%" },
@@ -75,7 +75,7 @@ export function Experience() {
       q("[data-job]").forEach((el) => {
         gsap.from(el.querySelectorAll("[data-rise]"), {
           y: 40,
-          autoAlpha: 0,
+          opacity: 0,
           duration: 1.1,
           stagger: 0.07,
           scrollTrigger: { trigger: el, start: "top 80%" },
@@ -136,7 +136,7 @@ export function Experience() {
                 />
                 <p data-rise className="label-mono">
                   <time>{job.start}</time> — <time>{job.end}</time>
-                  <span className="text-fog/60"> · </span>
+                  <span className="text-fog"> · </span>
                   {job.sector}
                 </p>
                 <h3

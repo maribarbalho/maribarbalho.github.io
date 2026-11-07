@@ -101,6 +101,11 @@
 .motion [data-intro] {
   visibility: hidden;
 }
+@media (min-width: 900px) {
+  .motion [data-intro-desktop] {
+    visibility: hidden;
+  }
+}
 
 .preloader {
   display: none;

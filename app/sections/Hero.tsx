@@ -72,9 +72,19 @@ export function Hero() {
 
       // ---------- Entrada cinematográfica (desktop e mobile) ----------
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const split = SplitText.create(q("[data-summary]"), { type: "lines", mask: "lines" });
+        // No mobile, resumo e ferramentas já aparecem prontos (melhora o LCP);
+        // a entrada animada deles fica só no desktop.
+        const desktop = window.matchMedia("(min-width: 900px)").matches;
+        const split = desktop
+          ? SplitText.create(q("[data-summary]"), { type: "lines", mask: "lines", aria: "none" })
+          : null;
 
         const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+        if (desktop && split) {
+          tl.set(q("[data-intro-desktop]"), { autoAlpha: 1 })
+            .from(split.lines, { yPercent: 100, duration: 1.1, stagger: 0.07 }, 0.65)
+            .from(q("[data-chip]"), { y: 12, autoAlpha: 0, duration: 1 }, 0.9);
+        }
         tl.set(q("[data-intro]"), { autoAlpha: 1 })
           .to(intro, { current: 1, duration: 2, ease: "power2.out" }, 0)
           .from(q("[data-name-line]"), { yPercent: 115, duration: 1.4, stagger: 0.1 }, 0.05)
@@ -86,13 +96,11 @@ export function Hero() {
           )
           .from(q("[data-photo-img]"), { scale: 1.35, duration: 1.8 }, 0.1)
           .from(q("[data-meta]"), { y: 16, autoAlpha: 0, duration: 1, stagger: 0.06 }, 0.5)
-          .from(split.lines, { yPercent: 100, duration: 1.1, stagger: 0.07 }, 0.65)
-          .from(q("[data-chip]"), { y: 12, autoAlpha: 0, duration: 1 }, 0.9)
           .from(q("[data-cue-line]"), { scaleY: 0, transformOrigin: "top", duration: 1 }, 1.1)
           // Devolve o texto ao fluxo natural para que ele quebre certo ao redimensionar.
-          .add(() => split.revert());
+          .add(() => split?.revert());
 
-        return () => split.revert();
+        return () => split?.revert();
       });
 
       // ---------- Desktop: pin + ruído → sinal + parallax + cursor ----------
@@ -178,17 +186,16 @@ export function Hero() {
 
         {/* Resumo */}
         <div
-          data-intro
           data-fade-on-scroll
           className="order-3 mt-6 max-w-[34rem] md:absolute md:top-[21svh] md:left-10 md:mt-0 md:max-w-[30rem] lg:max-w-[34rem]"
         >
           <p className="text-[clamp(26px,3vw,44px)] leading-[1.02] font-semibold tracking-[-0.02em] text-white [font-stretch:108%]">
             Dados que viram <span className="accent-serif text-sky">decisão</span>.
           </p>
-          <p data-summary className="mt-5 text-[15px] leading-relaxed text-mist md:text-base">
+          <p data-intro-desktop data-summary className="mt-5 text-[15px] leading-relaxed text-mist md:text-base">
             {profile.summary}
           </p>
-          <div data-chip className="mt-6">
+          <div data-intro-desktop data-chip className="mt-6">
             <StackTicker />
           </div>
         </div>

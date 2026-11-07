@@ -14,7 +14,7 @@ export function Education() {
 
       gsap.from(q("[data-head]"), {
         y: 40,
-        autoAlpha: 0,
+        opacity: 0,
         duration: 1.1,
         stagger: 0.08,
         scrollTrigger: { trigger: root.current, start: "top 70%" },
@@ -32,7 +32,7 @@ export function Education() {
 
       gsap.from(q("[data-group]"), {
         y: 50,
-        autoAlpha: 0,
+        opacity: 0,
         duration: 1.1,
         stagger: 0.1,
         scrollTrigger: { trigger: q("[data-courses]")[0], start: "top 80%" },
@@ -110,7 +110,7 @@ export function Education() {
                     <p className="leading-snug text-white">{c.title}</p>
                     <p className="label-mono mt-1 normal-case tracking-normal">
                       {c.institution}
-                      {c.hours && <span className="text-fog/70"> · {c.hours}h</span>}
+                      {c.hours && <span className="text-fog"> · {c.hours}h</span>}
                     </p>
                   </li>
                 ))}

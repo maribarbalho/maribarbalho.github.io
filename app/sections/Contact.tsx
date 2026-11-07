@@ -32,11 +32,11 @@ export function Contact() {
         scrollTrigger: { trigger: root.current, start: "top 85%", end: "top 10%", scrub: 0.8 },
       });
 
-      const split = SplitText.create(q("[data-title]"), { type: "lines", mask: "lines" });
+      const split = SplitText.create(q("[data-title]"), { type: "lines", mask: "lines", aria: "none" });
       gsap
         .timeline({ scrollTrigger: { trigger: root.current, start: "top 55%" } })
         .from(split.lines, { yPercent: 110, duration: 1.3, stagger: 0.1 })
-        .from(q("[data-rise]"), { y: 30, autoAlpha: 0, duration: 1, stagger: 0.07 }, 0.35)
+        .from(q("[data-rise]"), { y: 30, opacity: 0, duration: 1, stagger: 0.07 }, 0.35)
         .add(() => split.revert());
     },
     { dependencies: [ready], scope: root },

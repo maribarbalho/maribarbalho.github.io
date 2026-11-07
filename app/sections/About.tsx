@@ -30,8 +30,8 @@ export function About() {
 
       // Manifesto: as palavras "acendem" conforme a rolagem.
       const litWords = (pin: boolean) => {
-        const split = SplitText.create(q("[data-manifesto]"), { type: "words" });
-        gsap.set(split.words, { opacity: 0.14 });
+        const split = SplitText.create(q("[data-manifesto]"), { type: "words", aria: "none" });
+        gsap.set(split.words, { opacity: 0.55 });
         gsap.to(split.words, {
           opacity: 1,
           ease: "none",
@@ -50,21 +50,21 @@ export function About() {
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         gsap.from(q("[data-label]"), {
           y: 16,
-          autoAlpha: 0,
+          opacity: 0,
           duration: 0.9,
           stagger: 0.08,
           scrollTrigger: { trigger: q("[data-pin]")[0], start: "top 75%" },
         });
         gsap.from(q("[data-rise]"), {
           y: 48,
-          autoAlpha: 0,
+          opacity: 0,
           duration: 1.1,
           stagger: 0.09,
           scrollTrigger: { trigger: q("[data-details]")[0], start: "top 78%" },
         });
         gsap.from(q("[data-pillar]"), {
           y: 64,
-          autoAlpha: 0,
+          opacity: 0,
           duration: 1.2,
           stagger: 0.12,
           scrollTrigger: { trigger: q("[data-pillars]")[0], start: "top 82%" },

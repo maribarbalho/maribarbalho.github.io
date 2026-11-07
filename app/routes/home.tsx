@@ -25,7 +25,12 @@ export const meta: Route.MetaFunction = () => {
     { property: "og:url", content: profile.url },
     { property: "og:title", content: title },
     { property: "og:description", content: description },
+    { property: "og:image", content: `${profile.url}og-image.png` },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+    { property: "og:image:alt", content: `${profile.name}, Analista de Dados e Business Intelligence` },
     { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:image", content: `${profile.url}og-image.png` },
     { tagName: "link", rel: "canonical", href: profile.url },
   ];
 };

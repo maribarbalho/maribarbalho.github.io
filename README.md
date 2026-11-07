@@ -41,3 +41,12 @@ npm run typecheck
 - [Dashboard de RH](https://github.com/maribarbalho/dashboard-rh): Streamlit e Plotly
 - [Dashboard de Vendas](https://github.com/maribarbalho/dashboard_vendas): Streamlit com dados de API
 - [Bikcraft](https://github.com/maribarbalho/bikcraft): projeto de estudo de front-end
+
+## Publicação
+
+O workflow `.github/workflows/deploy.yml` faz o build e publica no GitHub Pages **apenas em push na `main`** (ou manualmente). Para ativar a nova versão:
+
+1. Mesclar a branch `redesign` na `main`.
+2. Em **Settings → Pages**, trocar a origem de "Deploy from a branch" para **GitHub Actions**.
+
+O build gera `404.html` (fallback da SPA), `robots.txt`, `sitemap.xml` e a imagem de compartilhamento `og-image.png`.

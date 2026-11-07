@@ -12,7 +12,7 @@ import "./styles/app.css";
 // e se a introdução já foi vista nesta sessão (evita piscar o conteúdo).
 const bootScript = `(function(){try{var d=document.documentElement;
 if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('motion')}
-if(sessionStorage.getItem('mb:intro-seen')){d.classList.add('intro-seen')}}catch(e){}})();`;
+if(sessionStorage.getItem('mb:intro-seen')||innerWidth<900||matchMedia('(pointer: coarse)').matches){d.classList.add('intro-seen')}}catch(e){}})();`;
 
 const jsonLd = {
   "@context": "https://schema.org",

@@ -75,14 +75,14 @@ export function Projects() {
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         gsap.from(q("[data-head]"), {
           y: 40,
-          autoAlpha: 0,
+          opacity: 0,
           duration: 1.1,
           stagger: 0.08,
           scrollTrigger: { trigger: root.current, start: "top 70%" },
         });
         gsap.from(q("[data-card]"), {
           y: 70,
-          autoAlpha: 0,
+          opacity: 0,
           duration: 1.2,
           stagger: 0.1,
           scrollTrigger: { trigger: root.current, start: "top 55%" },

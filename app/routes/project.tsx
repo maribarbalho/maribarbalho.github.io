@@ -1,5 +1,5 @@
 import { useRef, type ReactNode } from "react";
-import { Link, data } from "react-router";
+import { Link } from "react-router";
 import { ProjectCover } from "~/components/ProjectCover";
 import { shot } from "~/content/images";
 import { profile } from "~/content/profile";
@@ -8,11 +8,7 @@ import { SplitText, gsap, useGSAP } from "~/lib/gsap";
 import { useIntro } from "~/lib/intro";
 import type { Route } from "./+types/project";
 
-export function clientLoader({ params }: Route.ClientLoaderArgs) {
-  const project = getProject(params.slug);
-  if (!project) throw data("Projeto não encontrado", { status: 404 });
-  return { slug: project.slug };
-}
+// Sem loader: assim o conteúdo do case entra inteiro no HTML pré-renderizado (SEO).
 
 export const meta: Route.MetaFunction = ({ params }) => {
   const project = getProject(params.slug);
@@ -83,7 +79,24 @@ function ExternalLink({ href, children }: { href: string; children: ReactNode })
 }
 
 export default function ProjectPage({ params }: Route.ComponentProps) {
-  const project = getProject(params.slug) as Project;
+  const project = getProject(params.slug);
+  if (!project) {
+    return (
+      <main id="conteudo" className="grid min-h-svh place-items-center bg-abyss px-4 text-center">
+        <div>
+          <p className="label-mono">404</p>
+          <h1 className="mt-4 text-5xl font-extrabold text-white [font-stretch:115%]">Projeto não encontrado.</h1>
+          <Link to="/#projetos" className="link-draw mt-8 inline-block text-sky">
+            Ver todos os projetos
+          </Link>
+        </div>
+      </main>
+    );
+  }
+  return <ProjectView project={project} />;
+}
+
+function ProjectView({ project }: { project: Project }) {
   const index = projects.findIndex((p) => p.slug === project.slug);
   const next = projects[(index + 1) % projects.length];
   const root = useRef<HTMLElement>(null);
@@ -95,17 +108,20 @@ export default function ProjectPage({ params }: Route.ComponentProps) {
     () => {
       if (!ready || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       const q = gsap.utils.selector(root);
-      const split = SplitText.create(q("[data-title]"), { type: "lines", mask: "lines" });
-      gsap
-        .timeline({ defaults: { ease: "expo.out" } })
-        .from(split.lines, { yPercent: 105, duration: 1.3, stagger: 0.08 })
-        .from(q("[data-fade]"), { y: 24, autoAlpha: 0, duration: 1, stagger: 0.06 }, 0.2)
-        .add(() => split.revert());
+      // Entrada do título só no desktop: no mobile o texto já aparece pronto (melhor LCP).
+      if (window.matchMedia("(min-width: 900px)").matches) {
+        const split = SplitText.create(q("[data-title]"), { type: "lines", mask: "lines", aria: "none" });
+        gsap
+          .timeline({ defaults: { ease: "expo.out" } })
+          .from(split.lines, { yPercent: 105, duration: 1.3, stagger: 0.08 })
+          .from(q("[data-fade]"), { y: 24, opacity: 0, duration: 1, stagger: 0.06 }, 0.2)
+          .add(() => split.revert());
+      }
 
       q("[data-rise]").forEach((el) => {
         gsap.from(el, {
           y: 50,
-          autoAlpha: 0,
+          opacity: 0,
           duration: 1.1,
           scrollTrigger: { trigger: el, start: "top 85%" },
         });
