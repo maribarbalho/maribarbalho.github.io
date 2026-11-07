@@ -57,7 +57,7 @@ export function Contact() {
       id="contato"
       ref={root}
       aria-labelledby="contato-titulo"
-      className="relative isolate flex min-h-svh flex-col overflow-hidden border-t border-line bg-abyss"
+      className="relative isolate flex flex-col md:min-h-svh overflow-hidden border-t border-line bg-abyss"
     >
       <div
         aria-hidden="true"
@@ -65,7 +65,7 @@ export function Contact() {
       />
       <SignalField progress={progress} intro={intro} className="absolute inset-0 -z-10 size-full opacity-70" />
 
-      <div className="flex flex-1 flex-col justify-center px-4 pt-28 pb-16 md:px-10">
+      <div className="flex flex-1 flex-col justify-center px-4 pt-16 pb-14 md:px-10 md:pt-28 md:pb-16">
         <p data-rise className="label-mono">
           <span className="text-signal-text">06</span> — Contato
         </p>

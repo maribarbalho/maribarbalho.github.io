@@ -46,7 +46,7 @@ export function Education() {
       id="formacao"
       ref={root}
       aria-labelledby="formacao-titulo"
-      className="relative border-t border-line bg-abyss px-4 py-24 md:px-10 md:py-36"
+      className="relative border-t border-line bg-abyss px-4 py-16 md:px-10 md:py-36"
     >
       <div className="grid gap-6 md:grid-cols-12 md:gap-10">
         <p data-head className="label-mono md:col-span-3 md:pt-4">
@@ -62,7 +62,7 @@ export function Education() {
       </div>
 
       {/* Formação acadêmica */}
-      <ol aria-label="Formação acadêmica" className="mt-16 md:mt-24">
+      <ol aria-label="Formação acadêmica" className="mt-8 md:mt-24">
         {degrees.map((d) => (
           <li key={d.title} data-degree className="group relative py-8 md:py-10">
             <span data-rule aria-hidden="true" className="absolute inset-x-0 top-0 block h-px origin-left bg-line">
@@ -96,7 +96,7 @@ export function Education() {
       </ol>
 
       {/* Cursos complementares */}
-      <div className="mt-16 grid gap-10 border-t border-line pt-14 md:mt-24 md:grid-cols-12 md:pt-20">
+      <div className="mt-10 grid gap-8 border-t border-line pt-10 md:mt-24 md:gap-10 md:grid-cols-12 md:pt-20">
         <h3 data-head className="label-mono md:col-span-3">
           Cursos complementares
         </h3>
@@ -121,7 +121,7 @@ export function Education() {
       </div>
 
       {/* Idiomas */}
-      <div className="mt-16 grid gap-4 border-t border-line pt-8 md:grid-cols-12 md:gap-10">
+      <div className="mt-12 grid gap-4 border-t border-line pt-8 md:grid-cols-12 md:gap-10">
         <h3 className="label-mono md:col-span-3">Idiomas</h3>
         <ul className="md:col-span-9">
           {languages.map((l) => (

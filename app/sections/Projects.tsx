@@ -106,7 +106,7 @@ export function Projects() {
 
   return (
     <section id="projetos" ref={root} aria-labelledby="projetos-titulo" className="relative border-t border-line bg-abyss">
-      <div data-pin className="relative flex flex-col overflow-hidden py-24 md:h-svh md:justify-center md:py-0">
+      <div data-pin className="relative flex flex-col overflow-hidden py-16 md:h-svh md:justify-center md:py-0">
         {/* Cabeçalho */}
         <div className="flex flex-col gap-6 px-4 md:mb-10 md:flex-row md:items-end md:justify-between md:px-10">
           <div>
@@ -134,7 +134,7 @@ export function Projects() {
         {/* Trilho de cards */}
         <ol
           data-track
-          className="mt-12 flex flex-col gap-14 px-4 md:mt-0 md:w-max md:flex-row md:gap-8 md:pr-[12vw] md:pl-10"
+          className="mt-10 flex flex-col gap-12 px-4 md:mt-0 md:w-max md:flex-row md:gap-8 md:pr-[12vw] md:pl-10"
         >
           {projects.map((p, i) => (
             <li key={p.slug} data-card className="md:w-[clamp(360px,38vw,600px)]">

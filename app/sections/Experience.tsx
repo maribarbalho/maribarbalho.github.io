@@ -90,7 +90,7 @@ export function Experience() {
       id="experiencia"
       ref={root}
       aria-labelledby="experiencia-titulo"
-      className="relative border-t border-line bg-navy px-4 py-24 md:px-10 md:py-36"
+      className="relative border-t border-line bg-navy px-4 py-16 md:px-10 md:py-36"
     >
       <div className="grid gap-6 md:grid-cols-12 md:gap-10">
         <p data-head className="label-mono md:col-span-3 md:pt-4">
@@ -105,7 +105,7 @@ export function Experience() {
         </h2>
       </div>
 
-      <div className="mt-16 grid gap-10 md:mt-24 md:grid-cols-12">
+      <div className="mt-10 grid gap-10 md:mt-24 md:grid-cols-12">
         {/* Ano fixo (desktop) */}
         <div aria-hidden="true" className="hidden md:col-span-3 md:block">
           <div className="sticky top-32 overflow-hidden">

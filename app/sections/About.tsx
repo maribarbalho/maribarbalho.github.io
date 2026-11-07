@@ -90,7 +90,7 @@ export function About() {
       className="relative border-t border-line bg-navy"
     >
       {/* Manifesto (fixado no desktop enquanto as palavras acendem) */}
-      <div data-pin className="flex min-h-svh flex-col justify-center px-4 py-24 md:px-10">
+      <div data-pin className="flex flex-col justify-center px-4 pt-16 pb-12 md:min-h-svh md:px-10 md:py-24">
         <div className="grid gap-8 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-3">
             <p data-label className="label-mono">
@@ -110,7 +110,7 @@ export function About() {
       </div>
 
       {/* Trajetória e pilares */}
-      <div className="px-4 pb-24 md:px-10 md:pb-36">
+      <div className="px-4 pb-16 md:px-10 md:pb-36">
         <div data-details className="grid gap-12 border-t border-line pt-12 md:grid-cols-12 md:gap-10 md:pt-16">
           <div className="md:col-span-9 md:col-start-4">
             <p data-rise className="max-w-[62ch] text-lg leading-relaxed text-mist md:text-xl">
