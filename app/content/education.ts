@@ -6,12 +6,11 @@ export type Degree = { level: string; title: string; institution: string; year?:
 export type Course = { title: string; institution: string; hours?: number };
 
 export const degrees: Degree[] = [
-  { level: "Pós-graduação", title: "Data Analytics", institution: "FIAP", year: "2025" },
+  { level: "Pós-graduação", title: "Data Analytics", institution: "FIAP" },
   {
     level: "Graduação",
     title: "Análise e Desenvolvimento de Sistemas",
     institution: "Universidade São Judas Tadeu",
-    year: "2023",
   },
   {
     level: "Técnico",
