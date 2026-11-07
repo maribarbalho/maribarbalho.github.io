@@ -5,8 +5,8 @@ import { SplitText, gsap, prefersReducedMotion, useGSAP } from "~/lib/gsap";
 import { useIntro } from "~/lib/intro";
 import { scrollToTarget } from "~/lib/scroll";
 
-/** Currículo em PDF: ainda não enviado (versão sem dados pessoais sensíveis). */
-const CV_URL: string | null = null;
+/** Currículo em PDF (arquivo em public/). */
+const CV_URL: string | null = "/curriculo-mariana-barbalho.pdf";
 
 export function Contact() {
   const root = useRef<HTMLElement>(null);
@@ -121,7 +121,8 @@ export function Contact() {
               {CV_URL ? (
                 <a
                   href={CV_URL}
-                  download
+                  download="Curriculo-Mariana-Barbalho.pdf"
+                  type="application/pdf"
                   className="label-mono inline-flex items-center gap-2 rounded-full border border-line px-5 py-3 text-white transition-colors duration-300 hover:border-sky hover:bg-electric"
                 >
                   Currículo (PDF) <span aria-hidden="true">↓</span>
