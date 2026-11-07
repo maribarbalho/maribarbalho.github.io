@@ -26,6 +26,7 @@ export const courseGroups: { group: string; courses: Course[] }[] = [
     courses: [
       { title: "Power BI", institution: "Senai", hours: 40 },
       { title: "Power BI e Análise de Dados com IA", institution: "Senai", hours: 40 },
+      { title: "Python para Data Science", institution: "Senai", hours: 60 },
       { title: "Implementação em Big Data", institution: "Senai", hours: 40 },
       { title: "Análise de Dados com Python Pandas", institution: "Universidade São Judas Tadeu", hours: 20 },
       { title: "Excel Avançado", institution: "Clarify", hours: 48 },
@@ -35,7 +36,6 @@ export const courseGroups: { group: string; courses: Course[] }[] = [
     group: "Programação",
     courses: [
       { title: "Programação em Python", institution: "Senai", hours: 60 },
-      { title: "Python para Data Science", institution: "Senai", hours: 60 },
       { title: "Lógica de Programação", institution: "Senai", hours: 14 },
       { title: "HTML e CSS", institution: "Origamid" },
     ],
