@@ -142,8 +142,7 @@ export function Contact() {
 
       {/* Rodapé */}
       <footer className="flex flex-col gap-3 border-t border-line px-4 py-6 md:flex-row md:items-center md:justify-between md:px-10">
-        <p className="label-mono">© {new Date().getFullYear()} {profile.name}</p>
-        <p className="label-mono hidden md:block">React · GSAP · Lenis</p>
+        <p className="label-mono">© {profile.name}</p>
         <button
           type="button"
           onClick={() => scrollToTarget(0, false)}

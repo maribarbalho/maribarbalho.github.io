@@ -66,7 +66,7 @@ export function Preloader() {
     >
       <div className="flex justify-between">
         <span className="label-mono">Mariana Barbalho</span>
-        <span className="label-mono">Portfólio · 2026</span>
+        <span className="label-mono">Portfólio</span>
       </div>
       <div className="flex items-end justify-between gap-6">
         <div className="overflow-hidden">

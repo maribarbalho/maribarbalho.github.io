@@ -38,8 +38,9 @@ const ORDER = [
   "dashboard-vendas-power-bi",
   "operacoes-de-credito",
   "analise-obesidade",
-  "dashboard-rh",
-  "dashboard-vendas-streamlit",
+  // Ocultos temporariamente (em ajuste). Para voltar, é só descomentar:
+  // "dashboard-rh",
+  // "dashboard-vendas-streamlit",
 ];
 
 const all: Project[] = [

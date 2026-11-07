@@ -258,7 +258,7 @@ export function Hero() {
           className="order-4 mt-auto flex items-end justify-between pt-6 md:absolute md:inset-x-10 md:bottom-6 md:pt-0"
         >
           <span data-meta className="label-mono">
-            Portfólio <span className="text-signal-text">·</span> 2026
+            Portfólio
           </span>
           <a href="#sobre" data-meta className="label-mono flex items-center gap-3 text-mist hover:text-white">
             Role para explorar
