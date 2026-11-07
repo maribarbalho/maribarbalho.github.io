@@ -10,6 +10,9 @@ import type { Route } from "./+types/project";
 
 // Sem loader: assim o conteúdo do case entra inteiro no HTML pré-renderizado (SEO).
 
+/** Blocos "[ A documentar ]": ocultos no site publicado. Mude para true para revê-los. */
+const SHOW_PENDING = false;
+
 export const meta: Route.MetaFunction = ({ params }) => {
   const project = getProject(params.slug);
   if (!project) return [{ title: `Projeto não encontrado · ${profile.name}` }];
@@ -187,6 +190,7 @@ function ProjectView({ project }: { project: Project }) {
 
         {/* Conteúdo */}
         <div className="px-4 pt-12 pb-24 md:px-10 md:pt-20">
+          {(project.context || SHOW_PENDING) && (
           <Block title="Contexto">
             {project.context ? (
               <p className="max-w-[65ch] text-lg leading-relaxed text-mist md:text-xl">{project.context}</p>
@@ -194,6 +198,7 @@ function ProjectView({ project }: { project: Project }) {
               <Pending label="Contexto e problema de negócio" />
             )}
           </Block>
+          )}
 
           {project.questions && (
             <Block title="Perguntas de negócio">
@@ -262,7 +267,7 @@ function ProjectView({ project }: { project: Project }) {
             </Block>
           )}
 
-          {project.pending && project.pending.length > 0 && (
+          {SHOW_PENDING && project.pending && project.pending.length > 0 && (
             <Block title="Em documentação">
               <div className="grid gap-3 md:grid-cols-2">
                 {project.pending
