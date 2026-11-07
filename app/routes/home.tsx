@@ -5,6 +5,7 @@ import { ScrollTrigger } from "~/lib/gsap";
 import { useIntro } from "~/lib/intro";
 import { scrollToTarget } from "~/lib/scroll";
 import { About } from "~/sections/About";
+import { Contact } from "~/sections/Contact";
 import { Education } from "~/sections/Education";
 import { Experience } from "~/sections/Experience";
 import { Hero } from "~/sections/Hero";
@@ -64,23 +65,7 @@ export default function Home() {
       <Projects />
       <Experience />
       <Education />
-
-      {/* PLACEHOLDER: próxima etapa (Contato). Existe só para testar a rolagem. */}
-      <section
-        id="contato"
-        aria-label="Próxima seção (em construção)"
-        className="grid min-h-[70svh] place-items-center border-t border-line bg-navy px-4"
-      >
-        <div className="text-center">
-          <p className="label-mono text-signal-text">[ Placeholder · Etapa 6 ]</p>
-          <p className="mt-4 text-3xl font-bold text-white [font-stretch:112%] md:text-5xl">
-            Contato
-          </p>
-          <p className="mx-auto mt-4 max-w-md text-fog">
-            Esta seção será desenvolvida na próxima etapa, após a aprovação da Formação.
-          </p>
-        </div>
-      </section>
+      <Contact />
     </main>
   );
 }
