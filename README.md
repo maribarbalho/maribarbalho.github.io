@@ -1,27 +1,52 @@
 # Portfólio · Mariana Barbalho
 
-Código do meu site pessoal, publicado no GitHub Pages:
+Portfólio de Analista de Dados e Business Intelligence.
 
 **🌐 [maribarbalho.github.io](https://maribarbalho.github.io/)**
 
-Graduada em Análise e Desenvolvimento de Sistemas e pós-graduanda em Data Analytics.
+> Branch `redesign`: nova versão em desenvolvimento. O site publicado continua sendo gerado a partir da `main`.
 
-## O que tem no site
+## Stack
 
-- **Experiência** profissional
-- **Formação** e cursos (Power BI, Python, Pandas, Big Data, IA, UX/UI, entre outros)
-- **Projetos**
-- **Contato**
+- **React 19 + React Router 8** (modo framework, `ssr: false` com pré-renderização): cada rota vira HTML estático no build, compatível com o GitHub Pages e bom para SEO.
+- **Vite 8** e **Tailwind CSS 4**: os tokens de cor e tipografia ficam em `app/styles/app.css`.
+- **GSAP** (ScrollTrigger, SplitText) e **Lenis**: animações e scroll suave, respeitando `prefers-reduced-motion`.
+- Fontes self-hosted via Fontsource: Archivo (variável, eixo de largura), Instrument Serif e JetBrains Mono.
 
-Também inclui pequenas ferramentas feitas por mim, como uma calculadora de horas trabalhadas (`horas-trabalhadas/`) e o site de estudo Bikcraft (`bikcraft/`).
+## Estrutura
 
-## Tecnologias
+```
+app/
+  content/     dados profissionais (editar aqui para atualizar textos)
+  components/  peças reutilizáveis (Header, Preloader, SignalField, SmoothScroll)
+  sections/    seções da página (Hero, …)
+  lib/         configuração do GSAP e da introdução
+  routes/      páginas
+  styles/      CSS global e tokens
+public/        arquivos servidos como estão (favicon)
+```
 
-HTML, CSS e JavaScript, sem frameworks. Publicação automática pelo GitHub Pages a partir da branch `main`.
+## Rodando localmente
 
-## Projetos em destaque
+```bash
+npm install
+npm run dev        # http://localhost:5173
+npm run build      # gera build/client
+npm run typecheck
+```
+
+## Projetos relacionados
 
 - [Logistics Performance Analytics](https://github.com/maribarbalho/logistics-performance-analytics): case de BI em Power BI
 - [Dashboard de RH](https://github.com/maribarbalho/dashboard-rh): Streamlit e Plotly
 - [Dashboard de Vendas](https://github.com/maribarbalho/dashboard_vendas): Streamlit com dados de API
-- [Reconhecimento de Objetos](https://github.com/maribarbalho/Reconhecimento-Machine-Learning): Machine Learning no navegador
+- [Bikcraft](https://github.com/maribarbalho/bikcraft): projeto de estudo de front-end
+
+## Publicação
+
+O workflow `.github/workflows/deploy.yml` faz o build e publica no GitHub Pages **apenas em push na `main`** (ou manualmente). Para ativar a nova versão:
+
+1. Mesclar a branch `redesign` na `main`.
+2. Em **Settings → Pages**, trocar a origem de "Deploy from a branch" para **GitHub Actions**.
+
+O build gera `404.html` (fallback da SPA), `robots.txt`, `sitemap.xml` e a imagem de compartilhamento `og-image.png`.

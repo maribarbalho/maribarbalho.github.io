@@ -1,0 +1,160 @@
+@import "tailwindcss";
+@import "@fontsource-variable/archivo/wdth.css";
+@import "@fontsource/instrument-serif/400-italic.css";
+@import "@fontsource-variable/jetbrains-mono";
+@import "lenis/dist/lenis.css";
+
+/* ------------------------------------------------------------------
+   Tokens da direção criativa "Sinal"
+   ------------------------------------------------------------------ */
+@theme {
+  --color-abyss: #03070d;
+  --color-navy: #07111f;
+  --color-navy-2: #0c1a2e;
+  --color-line: #1a2a42;
+  --color-fog: #94a3b8;
+  --color-mist: #cbd5e1;
+  --color-ice: #c7d7fe;
+  --color-electric: #2563eb;
+  --color-sky: #60a5fa;
+  --color-signal: #8b5cf6;
+  --color-signal-text: #a78bfa;
+
+  --font-display: "Archivo Variable", "Archivo", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace;
+
+  --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@layer base {
+  html {
+    background: var(--color-abyss);
+    color: var(--color-mist);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--color-abyss);
+    min-height: 100svh;
+  }
+  ::selection {
+    background: var(--color-signal);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-sky);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .label-mono {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-fog);
+  }
+  .accent-serif {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-stretch: 100%;
+    letter-spacing: -0.01em;
+  }
+  .skip-link {
+    position: fixed;
+    left: 16px;
+    top: -60px;
+    z-index: 100;
+    padding: 10px 14px;
+    background: var(--color-electric);
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    transition: top 0.2s;
+  }
+  .skip-link:focus {
+    top: 16px;
+  }
+
+  /* Link com sublinhado que se desenha */
+  .link-draw {
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+    transition: background-size 0.5s var(--ease-expo), color 0.3s;
+  }
+  .link-draw:hover,
+  .link-draw:focus-visible {
+    background-size: 100% 1px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Estados de animação
+   Com JS ativo e sem preferência por movimento reduzido, os elementos
+   começam ocultos e o GSAP os revela. Sem JS, tudo aparece normalmente.
+   ------------------------------------------------------------------ */
+.motion [data-intro] {
+  visibility: hidden;
+}
+@media (min-width: 900px) {
+  .motion [data-intro-desktop] {
+    visibility: hidden;
+  }
+}
+
+.preloader {
+  display: none;
+}
+
+/* Transição card → case (View Transitions API; sem suporte, a troca é direta) */
+::view-transition-group(*) {
+  animation-duration: 0.75s;
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.45s;
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes cue {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+.motion:not(.intro-seen) .preloader {
+  display: flex;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
