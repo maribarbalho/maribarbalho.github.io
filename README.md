@@ -4,7 +4,7 @@ Portfólio de Analista de Dados e Business Intelligence.
 
 **🌐 [maribarbalho.github.io](https://maribarbalho.github.io/)**
 
-> Branch `redesign`: nova versão em desenvolvimento. O site publicado continua sendo gerado a partir da `main`.
+> Publicado automaticamente pelo GitHub Actions a cada push na `main`. A versão anterior (HTML/CSS) está na tag `site-antigo`.
 
 ## Stack
 
@@ -44,9 +44,8 @@ npm run typecheck
 
 ## Publicação
 
-O workflow `.github/workflows/deploy.yml` faz o build e publica no GitHub Pages **apenas em push na `main`** (ou manualmente). Para ativar a nova versão:
-
-1. Mesclar a branch `redesign` na `main`.
-2. Em **Settings → Pages**, trocar a origem de "Deploy from a branch" para **GitHub Actions**.
+O workflow `.github/workflows/deploy.yml` faz o build e publica no GitHub Pages a cada push na `main` (ou manualmente, em Actions). O Pages está configurado com a origem **GitHub Actions**.
 
 O build gera `404.html` (fallback da SPA), `robots.txt`, `sitemap.xml` e a imagem de compartilhamento `og-image.png`.
+
+Para voltar à versão antiga: reverter a `main` para a tag `site-antigo` e, em Settings → Pages, trocar a origem para "Deploy from a branch".

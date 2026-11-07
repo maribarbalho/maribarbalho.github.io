@@ -74,7 +74,7 @@ export function Hero() {
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         // No mobile, resumo e ferramentas já aparecem prontos (melhora o LCP);
         // a entrada animada deles fica só no desktop.
-        const desktop = window.matchMedia("(min-width: 900px)").matches;
+        const desktop = window.matchMedia("(min-width: 768px)").matches;
         const split = desktop
           ? SplitText.create(q("[data-summary]"), { type: "lines", mask: "lines", aria: "none" })
           : null;
@@ -236,14 +236,14 @@ export function Hero() {
           </span>
           <span
             aria-hidden="true"
-            className="block text-[length:clamp(64px,min(15.5vw,21svh),280px)] leading-[0.84] font-extrabold tracking-[-0.045em] [font-stretch:120%]"
+            className="block text-[length:clamp(64px,min(14.5vw,21svh),280px)] leading-[0.84] font-extrabold tracking-[-0.045em] [font-stretch:120%]"
           >
             <span data-name-row="1" className="block overflow-hidden pb-[0.04em]">
               <span data-name-line className="block">
                 {profile.firstName}
               </span>
             </span>
-            <span data-name-row="2" className="block overflow-hidden pb-[0.04em] md:pl-[14vw]">
+            <span data-name-row="2" className="block overflow-hidden pb-[0.04em] md:pl-[12vw]">
               <span data-name-line className="block">
                 {profile.lastName}
               </span>

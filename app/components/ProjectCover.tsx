@@ -21,7 +21,7 @@ type Props = {
 export function ProjectCover({
   project,
   imageKey = project.cover,
-  sizes = "(min-width: 900px) 40vw, 92vw",
+  sizes = "(min-width: 768px) 40vw, 92vw",
   priority = false,
   transitionName,
   className = "",

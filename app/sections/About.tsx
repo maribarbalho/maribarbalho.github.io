@@ -117,7 +117,7 @@ export function About() {
               {about.trajectory}
             </p>
 
-            <ol data-pillars className="mt-14 grid gap-4 md:mt-20 md:grid-cols-3 md:gap-6">
+            <ol data-pillars className="mt-14 grid gap-4 md:mt-20 md:gap-6 lg:grid-cols-3">
               {about.pillars.map((p) => (
                 <li
                   key={p.n}

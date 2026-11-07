@@ -109,7 +109,7 @@ function ProjectView({ project }: { project: Project }) {
       if (!ready || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       const q = gsap.utils.selector(root);
       // Entrada do título só no desktop: no mobile o texto já aparece pronto (melhor LCP).
-      if (window.matchMedia("(min-width: 900px)").matches) {
+      if (window.matchMedia("(min-width: 768px)").matches) {
         const split = SplitText.create(q("[data-title]"), { type: "lines", mask: "lines", aria: "none" });
         gsap
           .timeline({ defaults: { ease: "expo.out" } })
@@ -176,7 +176,7 @@ function ProjectView({ project }: { project: Project }) {
           <ProjectCover
             project={project}
             priority
-            sizes="(min-width: 900px) 92vw, 100vw"
+            sizes="(min-width: 768px) 92vw, 100vw"
             transitionName={`cover-${project.slug}`}
             className="aspect-[16/9] w-full border border-line"
           />
@@ -231,7 +231,7 @@ function ProjectView({ project }: { project: Project }) {
                     <ProjectCover
                       project={project}
                       imageKey={s.key}
-                      sizes="(min-width: 900px) 70vw, 100vw"
+                      sizes="(min-width: 768px) 70vw, 100vw"
                       alt={`${project.title}: página ${s.caption}`}
                       className="aspect-[16/9] w-full border border-line"
                     />
@@ -291,7 +291,7 @@ function ProjectView({ project }: { project: Project }) {
             <ProjectCover
               project={next}
               transitionName={`cover-${next.slug}`}
-              sizes="(min-width: 900px) 30vw, 92vw"
+              sizes="(min-width: 768px) 30vw, 92vw"
               className="aspect-[16/10] w-full md:col-span-4"
               imgClassName="transition-[filter] duration-700 [filter:grayscale(0.85)_brightness(0.78)] group-hover:[filter:none]"
             />

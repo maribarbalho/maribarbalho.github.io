@@ -23,8 +23,8 @@ export const DURATION = {
 
 /** Breakpoints usados com gsap.matchMedia(). */
 export const MQ = {
-  desktop: "(min-width: 900px) and (prefers-reduced-motion: no-preference)",
-  mobile: "(max-width: 899px) and (prefers-reduced-motion: no-preference)",
+  desktop: "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
+  mobile: "(max-width: 767px) and (prefers-reduced-motion: no-preference)",
   reduced: "(prefers-reduced-motion: reduce)",
 } as const;
 

@@ -25,14 +25,6 @@ export const profile = {
     email: "mariana_barbalho222@hotmail.com",
     linkedin: "https://www.linkedin.com/in/mariana-barbalho-619254202",
   },
-  education: [
-    { title: "Pós-graduação em Data Analytics", institution: "FIAP", year: 2025 },
-    {
-      title: "Análise e Desenvolvimento de Sistemas",
-      institution: "Universidade São Judas Tadeu",
-      year: 2023,
-    },
-  ],
 } as const;
 
 // Seção Sobre. Trechos entre {chaves} recebem o acento serifado.
