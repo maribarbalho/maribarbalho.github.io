@@ -4,7 +4,6 @@ import { useLocation } from "react-router";
 import { navigation, profile } from "~/content/profile";
 import { ScrollTrigger, gsap, prefersReducedMotion, useGSAP } from "~/lib/gsap";
 import { useIntro } from "~/lib/intro";
-import { ThemeToggle } from "./ThemeToggle";
 import { scrollToTarget } from "~/lib/scroll";
 
 const getLenis = () => (window as unknown as { __lenis?: Lenis }).__lenis;
@@ -109,7 +108,6 @@ export function Header() {
               </ul>
             </nav>
 
-            <ThemeToggle />
 
             <button
               ref={toggleRef}

@@ -162,7 +162,6 @@ export function Hero() {
       {/* Brilho azul ao fundo */}
       <div
         aria-hidden="true"
-        data-glow
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_520px_at_82%_8%,rgba(37,99,235,0.2),transparent_65%),radial-gradient(700px_400px_at_10%_100%,rgba(139,92,246,0.08),transparent_70%)]"
       />
       <SignalField progress={progress} intro={intro} className="absolute inset-0 size-full" />
@@ -221,7 +220,7 @@ export function Hero() {
               className="size-full object-cover opacity-80 [filter:brightness(0.82)_contrast(0.92)]"
             />
             {/* Véu azul-marinho: integra a foto ao fundo e reduz o destaque */}
-            <div aria-hidden="true" data-photo-veil className="pointer-events-none absolute inset-0 bg-gradient-to-t from-abyss/70 via-navy/25 to-transparent" />
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-abyss/70 via-navy/25 to-transparent" />
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 ring-1 ring-white/5 ring-inset" />
           </figure>
         </div>

@@ -52,18 +52,6 @@ export function SignalField({ progress, intro, className }: Props) {
     let visible = true;
     const mouse = { x: -9999, y: -9999 };
 
-    // Cores dos pontos e eixos conforme o tema (escuro/claro).
-    const readPalette = () =>
-      document.documentElement.getAttribute("data-theme") === "light"
-        ? { axis: "#DBE2F3", dot: "#09318D", dotAlpha: 0.45, hi: "#D6248A", hot: "#FD91CC" }
-        : { axis: "#1A2A42", dot: "#94A3B8", dotAlpha: 1, hi: "#60A5FA", hot: "#8B5CF6" };
-    let pal = readPalette();
-    const themeObserver = new MutationObserver(() => {
-      pal = readPalette();
-      if (reduced) requestAnimationFrame(draw);
-    });
-    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-
     const build = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       w = canvas.offsetWidth;
@@ -100,7 +88,7 @@ export function SignalField({ progress, intro, className }: Props) {
       // Eixos aparecem à medida que o sinal se forma.
       if (k > 0.02) {
         ctx.globalAlpha = k * 0.5 * alpha;
-        ctx.strokeStyle = pal.axis;
+        ctx.strokeStyle = "#1A2A42";
         ctx.lineWidth = 1;
         ctx.beginPath();
         const left = w * 0.06;
@@ -146,8 +134,8 @@ export function SignalField({ progress, intro, className }: Props) {
         p.y += (ty - p.y) * (reduced ? 1 : 0.09);
 
         const hot = p.hot && k > 0.6;
-        ctx.globalAlpha = alpha * (hot ? 1 : (0.35 + k * 0.35) * pal.dotAlpha);
-        ctx.fillStyle = hot ? pal.hot : k > 0.5 && p.size > 2 ? pal.hi : pal.dot;
+        ctx.globalAlpha = alpha * (hot ? 1 : 0.35 + k * 0.35);
+        ctx.fillStyle = hot ? "#8B5CF6" : k > 0.5 && p.size > 2 ? "#60A5FA" : "#94A3B8";
         const s = hot ? 3 : p.size;
         ctx.fillRect(p.x - s / 2, p.y - s / 2, s, s);
       }
@@ -195,7 +183,6 @@ export function SignalField({ progress, intro, className }: Props) {
     return () => {
       cancelAnimationFrame(raf);
       io.disconnect();
-      themeObserver.disconnect();
       window.removeEventListener("resize", onResize);
       window.removeEventListener("pointermove", onMove);
       document.documentElement.removeEventListener("pointerleave", onLeave);
