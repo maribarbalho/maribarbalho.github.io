@@ -152,12 +152,6 @@ export function Header() {
             </li>
           ))}
         </ul>
-        <a
-          href={`mailto:${profile.contact.email}`}
-          className="label-mono mt-10 break-all text-mist"
-        >
-          {profile.contact.email}
-        </a>
       </nav>
     </>
   );
