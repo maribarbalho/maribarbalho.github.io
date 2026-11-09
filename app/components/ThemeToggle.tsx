@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export const THEME_KEY = "mb:theme";
 type Theme = "dark" | "light";
 
-const THEME_COLOR: Record<Theme, string> = { dark: "#03070D", light: "#FBFAFF" };
+const THEME_COLOR: Record<Theme, string> = { dark: "#03070D", light: "#FFFFFF" };
 
 function applyTheme(theme: Theme) {
   const html = document.documentElement;

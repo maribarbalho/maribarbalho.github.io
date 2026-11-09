@@ -35,22 +35,23 @@
 :root {
   color-scheme: dark;
 }
-/* Claro: brancos levemente lilases + tinta roxo-escura + lilás como acento
-   (no lugar do azul do tema escuro). */
+/* Claro: branco puro + azul profundo (#09318D) + rosa chiclete (#FD91CC).
+   O rosa chiclete tem pouco contraste no branco, então aparece em
+   preenchimentos e detalhes; para texto usa-se um rosa mais intenso. */
 :root[data-theme="light"] {
   color-scheme: light;
-  --color-abyss: #fbfaff; /* branco com toque lilás (fundo) */
-  --color-navy: #f4f1fc; /* seções alternadas */
+  --color-abyss: #ffffff; /* branco puro (fundo) */
+  --color-navy: #f5f7fd; /* seções alternadas, levíssimo azul */
   --color-navy-2: #ffffff; /* cartões */
-  --color-line: #e4ddf3; /* linhas e bordas */
-  --color-fog: #615b73; /* texto secundário (6,2:1) */
-  --color-mist: #2a2340; /* texto corrido (14:1) */
-  --color-ice: #5b21b6; /* rótulos de dados (8:1) */
-  --color-white: #170f2e; /* títulos: tinta roxo-escura */
-  --color-sky: #7c3aed; /* links e acentos em lilás (5,7:1) */
-  --color-electric: #8b5cf6; /* preenchimentos e botões */
-  --color-signal: #c084fc; /* lilás claro (pontos, detalhes) */
-  --color-signal-text: #9333ea; /* lilás para texto pequeno (5,4:1) */
+  --color-line: #dbe2f3; /* linhas e bordas */
+  --color-fog: #4a5675; /* texto secundário (7:1) */
+  --color-mist: #1b2a52; /* texto corrido (14:1) */
+  --color-ice: #09318d; /* rótulos de dados */
+  --color-white: #09318d; /* títulos em azul profundo (11:1) */
+  --color-sky: #d6248a; /* acentos e links: rosa intenso (4,7:1) */
+  --color-electric: #fd91cc; /* preenchimentos e botões: rosa chiclete */
+  --color-signal: #fd91cc; /* detalhes e pontos: rosa chiclete */
+  --color-signal-text: #d6248a; /* rosa para texto pequeno (4,7:1) */
 }
 /* No claro, o nome do Hero não usa mistura de cores (ficaria invisível). */
 :root[data-theme="light"] .mix-blend-difference {
@@ -71,10 +72,10 @@
   opacity: 1 !important;
   filter: grayscale(1) contrast(1.08) !important;
 }
-/* Brilhos do fundo: de azul para lilás, mais suaves. */
+/* Brilhos do fundo: um toque de rosa chiclete, bem suave. */
 :root[data-theme="light"] [data-glow] {
-  filter: hue-rotate(38deg) saturate(1.15);
-  opacity: 0.55;
+  filter: hue-rotate(110deg) saturate(1.3);
+  opacity: 0.5;
 }
 /* Transição suave só no momento da troca de tema. */
 .theme-switching,

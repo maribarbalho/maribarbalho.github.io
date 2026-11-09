@@ -12,7 +12,7 @@ import "./styles/app.css";
 // e se a introdução já foi vista nesta sessão (evita piscar o conteúdo).
 // Também aplica o tema salvo (claro/escuro) antes de pintar, sem "piscar".
 const bootScript = `(function(){try{var d=document.documentElement;
-if(localStorage.getItem('mb:theme')==='light'){d.setAttribute('data-theme','light');var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content','#FBFAFF')}}catch(e){}
+if(localStorage.getItem('mb:theme')==='light'){d.setAttribute('data-theme','light');var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content','#FFFFFF')}}catch(e){}
 try{var d=document.documentElement;
 if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('motion')}
 if(sessionStorage.getItem('mb:intro-seen')||innerWidth<768||matchMedia('(pointer: coarse)').matches){d.classList.add('intro-seen')}}catch(e){}})();`;
