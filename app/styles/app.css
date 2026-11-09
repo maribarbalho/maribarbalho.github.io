@@ -35,23 +35,38 @@
 :root {
   color-scheme: dark;
 }
+/* Claro "editorial": papel quente + tinta azul-marinho + azul elétrico.
+   Mesma identidade do escuro, como se o site fosse impresso. */
 :root[data-theme="light"] {
   color-scheme: light;
-  --color-abyss: #f5f7fb; /* fundo da página */
-  --color-navy: #ecf0f6; /* seções alternadas */
-  --color-navy-2: #ffffff; /* cartões */
-  --color-line: #d4dbe6; /* linhas e bordas */
-  --color-fog: #556070; /* texto secundário (5,9:1) */
-  --color-mist: #2b3445; /* texto corrido */
+  --color-abyss: #f3f0e8; /* papel (fundo) */
+  --color-navy: #ebe6da; /* papel mais escuro (seções alternadas) */
+  --color-navy-2: #fbf9f4; /* cartões */
+  --color-line: #cfc7b8; /* linhas e bordas */
+  --color-fog: #5a5f6b; /* texto secundário (5,5:1) */
+  --color-mist: #1f2633; /* texto corrido (13:1) */
   --color-ice: #1e3a8a; /* rótulos de dados */
-  --color-white: #0a1222; /* títulos (o "branco" do tema escuro) */
+  --color-white: #07111f; /* títulos: o mesmo navy do tema escuro */
   --color-sky: #1d4ed8; /* links e acentos (6:1) */
+  --color-electric: #2563eb;
   --color-signal: #7c3aed;
   --color-signal-text: #6d28d9;
 }
 /* No claro, o nome do Hero não usa mistura de cores (ficaria invisível). */
 :root[data-theme="light"] .mix-blend-difference {
   mix-blend-mode: normal;
+}
+/* Foto: sem o véu escuro e sem escurecer; continua em P&B. */
+:root[data-theme="light"] [data-photo-veil] {
+  display: none;
+}
+:root[data-theme="light"] [data-photo-img] {
+  opacity: 1 !important;
+  filter: grayscale(1) contrast(1.08) !important;
+}
+/* Brilhos do fundo mais discretos no papel. */
+:root[data-theme="light"] [data-glow] {
+  opacity: 0.45;
 }
 /* Transição suave só no momento da troca de tema. */
 .theme-switching,

@@ -61,6 +61,7 @@ export function Contact() {
     >
       <div
         aria-hidden="true"
+        data-glow
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(900px_520px_at_15%_100%,rgba(37,99,235,0.18),transparent_65%),radial-gradient(600px_380px_at_90%_10%,rgba(139,92,246,0.08),transparent_70%)]"
       />
       <SignalField progress={progress} intro={intro} className="absolute inset-0 -z-10 size-full opacity-70" />

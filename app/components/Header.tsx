@@ -87,7 +87,7 @@ export function Header() {
 
   return (
     <>
-      <header ref={ref} data-intro className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-10 md:pt-6">
+      <header ref={ref} data-intro className="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-abyss/90 via-abyss/60 to-transparent px-4 pt-4 pb-6 md:px-10 md:pt-6 md:pb-8">
         <div className="flex items-center justify-between">
           <a href={base ? "/" : "#topo"} className="group flex items-center gap-3" aria-label={`${profile.name}, início`}>
             <span className="grid size-9 place-items-center rounded-full border border-line bg-abyss/40 text-[11px] font-bold tracking-wider text-white backdrop-blur transition-colors duration-300 group-hover:border-sky group-hover:bg-electric">
