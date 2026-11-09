@@ -56,6 +56,13 @@
 :root[data-theme="light"] .mix-blend-difference {
   mix-blend-mode: normal;
 }
+/* No mobile claro, o nome não passa por cima da foto (sem a mistura de
+   cores, o texto escuro some sobre a parte escura da imagem). */
+@media (max-width: 767px) {
+  :root[data-theme="light"] #hero-title {
+    margin-top: 1.25rem;
+  }
+}
 /* Foto: sem o véu escuro e sem escurecer; continua em P&B. */
 :root[data-theme="light"] [data-photo-veil] {
   display: none;

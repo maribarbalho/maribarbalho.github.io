@@ -157,7 +157,7 @@ export function Hero() {
       id="topo"
       ref={root}
       aria-labelledby="hero-title"
-      className="relative isolate h-svh min-h-[640px] overflow-hidden bg-abyss"
+      className="relative isolate min-h-svh overflow-hidden bg-abyss md:h-svh md:min-h-[640px]"
     >
       {/* Brilho azul ao fundo */}
       <div
