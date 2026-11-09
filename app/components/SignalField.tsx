@@ -55,7 +55,7 @@ export function SignalField({ progress, intro, className }: Props) {
     // Cores dos pontos e eixos conforme o tema (escuro/claro).
     const readPalette = () =>
       document.documentElement.getAttribute("data-theme") === "light"
-        ? { axis: "#B9B0A0", dot: "#07111F", dotAlpha: 0.55, hi: "#1D4ED8", hot: "#7C3AED" }
+        ? { axis: "#D6CCEB", dot: "#2A1B4D", dotAlpha: 0.5, hi: "#7C3AED", hot: "#C026D3" }
         : { axis: "#1A2A42", dot: "#94A3B8", dotAlpha: 1, hi: "#60A5FA", hot: "#8B5CF6" };
     let pal = readPalette();
     const themeObserver = new MutationObserver(() => {
