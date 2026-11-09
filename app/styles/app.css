@@ -27,6 +27,42 @@
   --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+/* ------------------------------------------------------------------
+   Tema claro: mesmos nomes de tokens, valores invertidos.
+   O escuro é o padrão; o claro é ativado pelo botão do header
+   (data-theme="light" no <html>, salvo no navegador).
+   ------------------------------------------------------------------ */
+:root {
+  color-scheme: dark;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-abyss: #f5f7fb; /* fundo da página */
+  --color-navy: #ecf0f6; /* seções alternadas */
+  --color-navy-2: #ffffff; /* cartões */
+  --color-line: #d4dbe6; /* linhas e bordas */
+  --color-fog: #556070; /* texto secundário (5,9:1) */
+  --color-mist: #2b3445; /* texto corrido */
+  --color-ice: #1e3a8a; /* rótulos de dados */
+  --color-white: #0a1222; /* títulos (o "branco" do tema escuro) */
+  --color-sky: #1d4ed8; /* links e acentos (6:1) */
+  --color-signal: #7c3aed;
+  --color-signal-text: #6d28d9;
+}
+/* No claro, o nome do Hero não usa mistura de cores (ficaria invisível). */
+:root[data-theme="light"] .mix-blend-difference {
+  mix-blend-mode: normal;
+}
+/* Transição suave só no momento da troca de tema. */
+.theme-switching,
+.theme-switching * {
+  transition:
+    background-color 0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease,
+    fill 0.45s ease !important;
+}
+
 @layer base {
   html {
     background: var(--color-abyss);

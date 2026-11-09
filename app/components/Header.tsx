@@ -4,6 +4,7 @@ import { useLocation } from "react-router";
 import { navigation, profile } from "~/content/profile";
 import { ScrollTrigger, gsap, prefersReducedMotion, useGSAP } from "~/lib/gsap";
 import { useIntro } from "~/lib/intro";
+import { ThemeToggle } from "./ThemeToggle";
 import { scrollToTarget } from "~/lib/scroll";
 
 const getLenis = () => (window as unknown as { __lenis?: Lenis }).__lenis;
@@ -95,28 +96,32 @@ export function Header() {
             <span className="label-mono hidden text-mist sm:inline">{profile.name}</span>
           </a>
 
-          <nav aria-label="Principal" className="hidden md:block">
-            <ul className="flex items-center gap-8">
-              {navigation.map((item) => (
-                <li key={item.href}>
-                  <a href={base + item.href} className="label-mono link-draw pb-1 text-mist hover:text-white">
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <div className="flex items-center gap-2 md:gap-8">
+            <nav aria-label="Principal" className="hidden md:block">
+              <ul className="flex items-center gap-8">
+                {navigation.map((item) => (
+                  <li key={item.href}>
+                    <a href={base + item.href} className="label-mono link-draw pb-1 text-mist hover:text-white">
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-          <button
-            ref={toggleRef}
-            type="button"
-            className="label-mono rounded-full border border-line bg-abyss/40 px-4 py-2 text-white backdrop-blur md:hidden"
-            aria-expanded={open}
-            aria-controls="menu-mobile"
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? "Fechar" : "Menu"}
-          </button>
+            <ThemeToggle />
+
+            <button
+              ref={toggleRef}
+              type="button"
+              className="label-mono rounded-full border border-line bg-abyss/40 px-4 py-2 text-white backdrop-blur md:hidden"
+              aria-expanded={open}
+              aria-controls="menu-mobile"
+              onClick={() => setOpen((v) => !v)}
+            >
+              {open ? "Fechar" : "Menu"}
+            </button>
+          </div>
         </div>
       </header>
 
