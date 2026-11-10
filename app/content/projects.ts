@@ -35,6 +35,7 @@ export type Project = {
 // Ordem de exibição no site (a ordem do array abaixo não importa).
 const ORDER = [
   "logistics-performance-analytics",
+  "finance-flow-analytics",
   "dashboard-vendas-power-bi",
   "operacoes-de-credito",
   "analise-obesidade",
@@ -44,6 +45,60 @@ const ORDER = [
 ];
 
 const all: Project[] = [
+  {
+    slug: "finance-flow-analytics",
+    title: "Finance Flow",
+    category: "Business Intelligence · Finanças",
+    tools: ["Power BI", "Power Query (M)", "DAX", "Modelagem dimensional"],
+    teaser:
+      "Recebimentos e pagamentos transformados em análises de movimentação, concentração por clientes e fornecedores, tendências e pontualidade.",
+    cover: "finance-panorama",
+    links: {
+      powerbi:
+        "https://app.powerbi.com/view?r=eyJrIjoiNTViMTZlYzktNDZmZS00NzMyLTk5YTktNDc2Y2FkNWQwMDQxIiwidCI6IjY1OWNlMmI4LTA3MTQtNDE5OC04YzM4LWRjOWI2MGFhYmI1NyJ9",
+      github: "https://github.com/maribarbalho/finance-flow-analytics",
+    },
+    context:
+      "Acompanhar o volume de entradas e saídas financeiras, comparar períodos, identificar concentração por clientes e fornecedores e investigar movimentações registradas após o vencimento. O case integra duas tabelas de movimentação e os cadastros de apoio em um modelo dimensional, com foco na clareza da definição das métricas.",
+    questions: [
+      "Quanto entrou e quanto saiu em cada período, e qual a proporção entre saídas e entradas?",
+      "Como as movimentações evoluíram entre 2018 e 2019?",
+      "Quão concentrados estão os recebimentos em poucos clientes e os pagamentos em poucos fornecedores?",
+      "Com que frequência e por quanto tempo as movimentações acontecem após o vencimento?",
+    ],
+    method: [
+      "Ingestão de uma base em Excel com cinco abas (clientes, fornecedores, bancos, pagamentos e recebimentos) no Power Query, com atributos e flags de qualidade.",
+      "Modelo dimensional com duas tabelas fato (recebimentos e pagamentos) e dimensões de calendário, cliente, fornecedor e conta bancária; relacionamentos inativos para análises por emissão e vencimento.",
+      "Medidas DAX para valores, rankings, participação, acumulados, comparação entre anos e indicadores de atraso.",
+      "Seis páginas (Home, Panorama Financeiro, Evolução & Tendências, Recebimentos, Pagamentos e Prazos & Diagnóstico), com navegação lateral, filtros contextuais e sete tooltips personalizados.",
+    ],
+    kpis: {
+      items: [
+        { value: "R$ 59,37 mi", label: "Valor recebido" },
+        { value: "R$ 24,02 mi", label: "Valor pago" },
+        { value: "R$ 35,36 mi", label: "Movimentação líquida (entradas − saídas)" },
+        { value: "40,45%", label: "Saídas sobre entradas" },
+        { value: "71,90%", label: "Concentração dos 5 maiores clientes" },
+        { value: "24,00%", label: "Recebimentos após o vencimento" },
+      ],
+      note: "Base didática de 2018–2019, sem filtros. A movimentação líquida é a diferença entre recebimentos e pagamentos registrados e não equivale a lucro contábil ou saldo bancário.",
+    },
+    shots: [
+      { key: "finance-panorama", caption: "Panorama Financeiro" },
+      { key: "finance-evolucao", caption: "Evolução & Tendências" },
+      { key: "finance-recebimentos", caption: "Inteligência de Recebimentos" },
+      { key: "finance-pagamentos", caption: "Inteligência de Pagamentos" },
+      { key: "finance-prazos", caption: "Prazos & Diagnóstico" },
+    ],
+    insights: [
+      "As entradas superaram as saídas em R$ 35,36 milhões, e nenhum mês teve pagamentos maiores que recebimentos.",
+      "Os pagamentos representam 40,45% das entradas registradas.",
+      "Os 5 maiores clientes concentram 71,90% do valor recebido, o que indica dependência de poucos pagadores.",
+      "24% dos recebimentos e 15,34% dos pagamentos foram registrados após o vencimento.",
+    ],
+    disclaimer:
+      "Projeto educacional do curso Power BI e Análise de Dados com IA (Senai). Os indicadores representam apenas a base didática e não são resultados financeiros de uma empresa real.",
+  },
   {
     slug: "logistics-performance-analytics",
     title: "Logistics Performance Analytics",
